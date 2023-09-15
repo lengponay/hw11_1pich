@@ -11,10 +11,35 @@ tenttent te;
 treetree []tr;
 
 void setup() {
-
   size (1500, 800);
-  
-   background (100);
+  tr = new treetree[3];
+  for (int i = 0; i < 3; i++) {
+    tr[i] = new treetree();
+  }
+  te = new tenttent(1300, 500, 60);
+  ch1 = new chairchair(1000, 600, 72);
+  cl = new cloudcloud[5];
+  for (int i = 0; i < 5; i++) {
+    cl[i] = new cloudcloud();
+  }
+  fr1 = new firefire();
+  gr = new greengreen[3];
+  for (int i = 0; i < 3; i++) {
+    gr[i] = new greengreen();
+  }
+  hu1 = new humanhuman();
+  sig1 = new signsign ();
+  st = new stonestone[3];
+  for (int i = 0; i < 3; i++) {
+    st[i] = new stonestone();
+  }
+  cc = new catcat[5];
+  for (int i = 0; i < 5; i++) {
+    cc[i] = new catcat();
+  }
+}
+void showBack() {
+  background (100);
 
   background (#090580); //sky
   noStroke();
@@ -25,66 +50,32 @@ void setup() {
   fill (#0077b6);
   ellipse (0, 780, 1000, 650);//lake
 
-  tr = new treetree[3];
   for (int i = 0; i < 3; i++) {
-    tr[i] = new treetree();
     tr[i].tree();
   }
 
-  te = new tenttent(1300,500,60);
   te.tent();
-
-  ch1 = new chairchair(1000, 600, 72);
   ch1.chair();
-
-  cl = new cloudcloud[5];
   for (int i = 0; i < 5; i++) {
-    cl[i] = new cloudcloud();
     cl[i].cloud();
   }
-
-  cc = new catcat[5];
-  for (int i = 0; i < 5; i++) {
-    cc[i] = new catcat();
-    cc[i].cat();
-  }
-
-  fr1 = new firefire();
   fr1.fire();
-
-  gr = new greengreen[3];
   for (int i = 0; i < 3; i++) {
-    gr[i] = new greengreen();
     gr[i].green1();
   }
-
-  hu1 = new humanhuman();
   hu1.human();
-
-  sig1 = new signsign ();
   sig1.sign();
-
-  st = new stonestone[3];
   for (int i = 0; i < 3; i++) {
-    st[i] = new stonestone();
     st[i].stone();
   }
 
   textSize(50);
   fill (255, 0, 0);
   text ("DON'T CROSS THE LINE", 900, 200);
-
-
- cc = new catcat[5];
-  for (int i = 0; i < 5; i++) {
-    cc[i] = new catcat();
-    cc[i].cat();
-  }
 }
-
 void draw () {
   background (#090580); //sky
- 
+  showBack();
   for (int i = 0; i < 5; i++) {
     cc[i].cat();
     cc[i].cccat();
@@ -95,14 +86,16 @@ class catcat {
   catcat() {
     x = random(width);
     y = random(height);
-    d = random(40,60);
-    vx = random(3,6);
-    vy = random(3,6);
+    d = random(40, 60);
+    vx = random(3, 6);
+    vy = random(3, 6);
   }
-  catcat(float a,float b,float c) {
-    x = a;     y = b;    d = c;
-    vx = random(2,4);
-    vy = random(2,4);
+  catcat(float a, float b, float c) {
+    x = a;
+    y = b;
+    d = c;
+    vx = random(2, 4);
+    vy = random(2, 4);
   }
   float x, y, d, vx, vy;
   // member functions
@@ -162,4 +155,3 @@ class catcat {
     ellipse ( x+d*0.4, y+d*0.5, d*0.12, d*0.08 );
   }
 }
-  
